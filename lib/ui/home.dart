@@ -195,6 +195,8 @@ class _HomePageState extends State<HomePage> {
         direction: axis,
         children: <Widget>[
           _buildMenuItem(
+              quarterTurns, Strings.menu_stack_link, Strings.menu_stack),
+          _buildMenuItem(
               quarterTurns, Strings.menu_github_link, Strings.menu_github),
           _buildMenuItem(quarterTurns, Strings.menu_linked_in_link,
               Strings.menu_linked_in),

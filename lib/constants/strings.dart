@@ -83,6 +83,7 @@ class Strings {
   static const String menu_medium = ' MEDIUM ';
   static const String menu_github = 'GITHUB';
   static const String menu_mail = 'MAIL';
+  static const String menu_stack = 'STACKOVERFLOW';
 
   // links:---------------------------------------------------------------------
   static const String menu_facebook_link = 'https://www.facebook.com/lasithe';
@@ -90,5 +91,7 @@ class Strings {
   static const String menu_linked_in_link =
       'https://www.linkedin.com/in/lasithaprabodha/';
   static const String menu_github_link = 'https://github.com/LasithaPrabodha';
+  static const String menu_stack_link =
+      'https://stackoverflow.com/users/6293954/lasitha';
   static const String menu_mail_link = 'mailto:lasiprabo@gmail.com';
 }
