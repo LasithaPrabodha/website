@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mywebsite/constants/strings.dart';
 import 'package:mywebsite/ui/home.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'package:mywebsite/utils/screen/screen_utils.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
