@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isSmallScreen = false;
+  final ScrollController _controller = new ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +27,22 @@ class _HomePageState extends State<HomePage> {
       color: Color(0xFF1a1a1a),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            return Stack(
-              children: <Widget>[
-                _buildBackground(),
-                _buildBody(context, constraints),
-                _buildMadeWith(
-                  alignment: ResponsiveWidget.isSmallScreen(context)
-                      ? Alignment.topRight
-                      : Alignment.bottomLeft,
-                ),
-                isSmallScreen ? SizedBox.shrink() : _buildSocialButtons()
-              ],
-            );
-          },
+        body: Scrollbar(
+          showTrackOnHover: true,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Stack(
+                children: <Widget>[
+                  _buildBackground(),
+                  _buildBody(context, constraints),
+                  _buildMadeWith(
+                    alignment: ResponsiveWidget.isSmallScreen(context) ? Alignment.topRight : Alignment.bottomLeft,
+                  ),
+                  isSmallScreen ? SizedBox.shrink() : _buildSocialButtons()
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -77,9 +79,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: <Widget>[
           ConstrainedBox(
-            constraints: BoxConstraints(
-                minWidth: constraints.maxWidth,
-                minHeight: constraints.maxHeight),
+            constraints: BoxConstraints(minWidth: constraints.maxWidth, minHeight: constraints.maxHeight),
             child: ResponsiveWidget(
               largeScreen: _buildLargeScreen(context),
               mediumScreen: _buildMediumScreen(context),
@@ -194,16 +194,11 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: WrapCrossAlignment.center,
         direction: axis,
         children: <Widget>[
-          _buildMenuItem(
-              quarterTurns, Strings.menu_stack_link, Strings.menu_stack),
-          _buildMenuItem(
-              quarterTurns, Strings.menu_github_link, Strings.menu_github),
-          _buildMenuItem(quarterTurns, Strings.menu_linked_in_link,
-              Strings.menu_linked_in),
-          _buildMenuItem(
-              quarterTurns, Strings.menu_twitter_link, Strings.menu_twitter),
-          _buildMenuItem(
-              quarterTurns, Strings.menu_facebook_link, Strings.menu_facebook),
+          _buildMenuItem(quarterTurns, Strings.menu_stack_link, Strings.menu_stack),
+          _buildMenuItem(quarterTurns, Strings.menu_github_link, Strings.menu_github),
+          _buildMenuItem(quarterTurns, Strings.menu_linked_in_link, Strings.menu_linked_in),
+          _buildMenuItem(quarterTurns, Strings.menu_twitter_link, Strings.menu_twitter),
+          _buildMenuItem(quarterTurns, Strings.menu_facebook_link, Strings.menu_facebook),
         ],
       ),
     );

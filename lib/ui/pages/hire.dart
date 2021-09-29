@@ -268,7 +268,6 @@ class _HireWidgetState extends State<HireWidget> {
 
   // general methods:-----------------------------------------------------------
   void _mouseEnter(bool hover) {
-    print('mouse event: $hover');
     setState(() {
       _hovering = hover;
     });
